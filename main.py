@@ -10,6 +10,9 @@ from routes.document_routes import router as document_router
 from routes.search_routes import router as search_router
 
 
+from routes.analysis_routes import router as analysis_router
+
+
 # Create database tables
 Base.metadata.create_all(bind=engine)
 
@@ -25,6 +28,8 @@ app = FastAPI(
 # Register routers
 app.include_router(document_router)
 app.include_router(search_router)
+app.include_router(analysis_router)
+
 
 
 @app.on_event("startup")
