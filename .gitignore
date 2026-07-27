@@ -1,28 +1,18 @@
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Virtual Environment
 venv/
-
-# Environment variables
-.env
-
-# IDE
-.vscode/
-.idea/
-
-# Python cache
+__pycache__/
 .pytest_cache/
 
-# ChromaDB
-data/vector_db/
+.env
 
-# Uploaded documents
-data/raw_documents/
-data/processed_documents/
+logs/
+exports/
+data/uploads/
+data/chroma/
 
-# Logs
-*.log
+*.db
+*.sqlite3
+
+.idea/
+.vscode/
+
+*.pyc
