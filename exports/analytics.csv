@@ -1,0 +1,8 @@
+Metric,Value
+total_documents,9
+processed_documents,3
+failed_documents,0
+total_pages,6
+total_chunks,9
+vector_embeddings,3
+uploaded_data_mb,3.14

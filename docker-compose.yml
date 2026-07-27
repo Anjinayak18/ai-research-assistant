@@ -1,0 +1,19 @@
+
+
+services:
+  ai-research-assistant:
+    build: .
+    container_name: ai-research-assistant
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./exports:/app/exports
+
+    env_file:
+      - .env
+
+    restart: unless-stopped

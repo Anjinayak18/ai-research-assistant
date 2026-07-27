@@ -8,6 +8,12 @@ from routes.search_routes import router as search_router
 from src.database import models
 from src.database.base import Base, engine
 
+from routes.analytics_routes import router as analytics_router
+
+from routes.export_routes import router as export_router
+
+from routes.export_routes import router as export_router
+
 # Create database tables
 Base.metadata.create_all(bind=engine)
 
@@ -24,6 +30,9 @@ app = FastAPI(
 app.include_router(document_router)
 app.include_router(search_router)
 app.include_router(analysis_router)
+app.include_router(analytics_router)
+app.include_router(export_router)
+app.include_router(export_router)
 
 
 @app.on_event("startup")
