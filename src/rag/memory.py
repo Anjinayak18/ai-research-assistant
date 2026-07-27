@@ -4,7 +4,7 @@ Conversation Memory
 Maintains conversation history for follow-up questions.
 """
 
-from typing import List, Dict
+from typing import Dict, List
 
 
 class ConversationMemory:
@@ -14,25 +14,16 @@ class ConversationMemory:
         self.max_history = max_history
         self.history: List[Dict[str, str]] = []
 
-    def add(
-        self,
-        question: str,
-        answer: str
-    ) -> None:
+    def add(self, question: str, answer: str) -> None:
         """
         Store a conversation turn.
         """
 
-        self.history.append(
-            {
-                "question": question,
-                "answer": answer
-            }
-        )
+        self.history.append({"question": question, "answer": answer})
 
         # Keep only the latest conversations
         if len(self.history) > self.max_history:
-            self.history = self.history[-self.max_history:]
+            self.history = self.history[-self.max_history :]
 
     def get_history(self) -> str:
         """
@@ -46,14 +37,12 @@ class ConversationMemory:
 
         for item in self.history:
 
-            conversations.append(
-                f"""User:
+            conversations.append(f"""User:
 {item['question']}
 
 Assistant:
 {item['answer']}
-"""
-            )
+""")
 
         return "\n".join(conversations)
 

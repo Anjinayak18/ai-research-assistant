@@ -33,12 +33,7 @@ class CitationBuilder:
 
             seen.add(key)
 
-            citations.append(
-                {
-                    "document": document,
-                    "page": page
-                }
-            )
+            citations.append({"document": document, "page": page})
 
         return citations
 
@@ -54,8 +49,6 @@ class CitationBuilder:
         lines = []
 
         for citation in citations:
-            lines.append(
-                f"- {citation['document']} (Page {citation['page']})"
-            )
+            lines.append(f"- {citation['document']} (Page {citation['page']})")
 
         return "\n".join(lines)

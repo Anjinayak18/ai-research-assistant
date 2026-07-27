@@ -24,10 +24,7 @@ class Settings(BaseSettings):
 
     LABEL_ENCODER_PATH: str = "./models/label_encoder.pkl"
 
-    model_config = SettingsConfigDict(
-        env_file=".env",
-        extra="ignore"
-    )
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 
 settings = Settings()

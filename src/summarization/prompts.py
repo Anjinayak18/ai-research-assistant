@@ -3,13 +3,9 @@ Summarization Prompt Templates
 """
 
 
-def build_summary_prompt(
-    context: str,
-    summary_type: str = "executive"
-) -> str:
+def build_summary_prompt(context: str, summary_type: str = "executive") -> str:
 
     prompt_map = {
-
         "executive": """
 Generate a concise executive summary.
 
@@ -18,7 +14,6 @@ Focus on:
 - Key points
 - Overall conclusion
 """,
-
         "detailed": """
 Generate a detailed summary.
 
@@ -27,24 +22,19 @@ Include:
 - Technical details
 - Explanations
 """,
-
         "bullet": """
 Summarize the document as bullet points.
 
 Use concise bullets.
 """,
-
         "key_findings": """
 Extract the most important findings from the document.
 
 Return only the important findings.
-"""
+""",
     }
 
-    instruction = prompt_map.get(
-        summary_type,
-        prompt_map["executive"]
-    )
+    instruction = prompt_map.get(summary_type, prompt_map["executive"])
 
     return f"""
 You are an AI Research Assistant.

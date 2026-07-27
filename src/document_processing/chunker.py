@@ -1,10 +1,6 @@
 class Chunker:
 
-    def __init__(
-        self,
-        chunk_size=1000,
-        overlap=150
-    ):
+    def __init__(self, chunk_size=1000, overlap=150):
         self.chunk_size = chunk_size
         self.overlap = overlap
 
@@ -26,13 +22,15 @@ class Chunker:
 
                 chunk_text = text[start:end]
 
-                chunks.append({
-                    "chunk_id": str(chunk_id),
-                    "document_id": page["document_id"],
-                    "document_name": page["document_name"],
-                    "page_number": page["page_number"],
-                    "text": chunk_text
-                })
+                chunks.append(
+                    {
+                        "chunk_id": str(chunk_id),
+                        "document_id": page["document_id"],
+                        "document_name": page["document_name"],
+                        "page_number": page["page_number"],
+                        "text": chunk_text,
+                    }
+                )
 
                 chunk_id += 1
 

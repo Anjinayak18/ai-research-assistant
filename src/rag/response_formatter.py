@@ -17,7 +17,7 @@ class ResponseFormatter:
         answer: str,
         citations: List[Dict[str, Any]],
         retrieved_context: str,
-        processing_time_ms: float
+        processing_time_ms: float,
     ) -> Dict[str, Any]:
 
         return {
@@ -28,14 +28,11 @@ class ResponseFormatter:
             "citations": citations,
             "retrieved_context": retrieved_context,
             "retrieved_chunks": len(citations),
-            "processing_time_ms": round(processing_time_ms, 2)
+            "processing_time_ms": round(processing_time_ms, 2),
         }
 
     @staticmethod
-    def error(
-        question: str,
-        message: str
-    ) -> Dict[str, Any]:
+    def error(question: str, message: str) -> Dict[str, Any]:
 
         return {
             "success": False,
@@ -46,5 +43,5 @@ class ResponseFormatter:
             "retrieved_context": "",
             "retrieved_chunks": 0,
             "processing_time_ms": 0,
-            "error": message
+            "error": message,
         }

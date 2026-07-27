@@ -23,9 +23,7 @@ class ContextBuilder:
         metadatas = search_results.get("metadatas", [[]])[0]
         distances = search_results.get("distances", [[]])[0]
 
-        for index, (document, metadata) in enumerate(
-            zip(documents, metadatas)
-        ):
+        for index, (document, metadata) in enumerate(zip(documents, metadatas)):
 
             similarity = None
 

@@ -13,7 +13,6 @@ from google import genai
 
 from config.settings import settings
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -21,17 +20,12 @@ class GeminiLLM:
     """Wrapper around Google's Gemini API."""
 
     def __init__(self):
-        self.client = genai.Client(
-            api_key=settings.GOOGLE_API_KEY
-        )
+        self.client = genai.Client(api_key=settings.GOOGLE_API_KEY)
 
         self.model = "gemini-2.5-flash"
 
     def generate(
-        self,
-        prompt: str,
-        temperature: float = 0.2,
-        max_output_tokens: int = 2048
+        self, prompt: str, temperature: float = 0.2, max_output_tokens: int = 2048
     ) -> str:
         """
         Generate an answer from Gemini.
@@ -48,17 +42,13 @@ class GeminiLLM:
                 config={
                     "temperature": temperature,
                     "max_output_tokens": max_output_tokens,
-                }
+                },
             )
 
             return response.text.strip()
 
         except Exception as e:
 
-            logger.exception(
-                "Gemini generation failed."
-            )
+            logger.exception("Gemini generation failed.")
 
-            raise RuntimeError(
-                f"LLM Error: {str(e)}"
-            )
+            raise RuntimeError(f"LLM Error: {str(e)}")

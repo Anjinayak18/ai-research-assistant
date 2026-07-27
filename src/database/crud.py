@@ -7,7 +7,7 @@ def create_document(db: Session, document: schemas.DocumentCreate):
     db_document = models.Document(
         document_id=document.document_id,
         document_name=document.document_name,
-        file_path=document.file_path
+        file_path=document.file_path,
     )
 
     db.add(db_document)

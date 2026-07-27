@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String, DateTime
 from datetime import datetime
+
+from sqlalchemy import Column, DateTime, Integer, String
 
 from src.database.base import Base
 
@@ -13,32 +14,14 @@ class Document(Base):
 
     document_name = Column(String, nullable=False)
 
-    upload_timestamp = Column(
-        DateTime,
-        default=datetime.utcnow
-    )
+    upload_timestamp = Column(DateTime, default=datetime.utcnow)
 
-    total_pages = Column(
-        Integer,
-        default=0
-    )
+    total_pages = Column(Integer, default=0)
 
-    total_chunks = Column(
-        Integer,
-        default=0
-    )
+    total_chunks = Column(Integer, default=0)
 
-    processing_status = Column(
-        String,
-        default="PENDING"
-    )
+    processing_status = Column(String, default="PENDING")
 
-    category = Column(
-        String,
-        default="Unknown"
-    )
+    category = Column(String, default="Unknown")
 
-    file_path = Column(
-        String,
-        nullable=False
-    )
+    file_path = Column(String, nullable=False)

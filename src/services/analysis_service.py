@@ -1,6 +1,6 @@
 from src.embeddings.embedding_generator import EmbeddingGenerator
-from src.vector_store.manager import VectorStoreManager
 from src.summarization.summarizer import DocumentSummarizer
+from src.vector_store.manager import VectorStoreManager
 
 
 class AnalysisService:
@@ -13,23 +13,12 @@ class AnalysisService:
 
         self.summarizer = DocumentSummarizer()
 
-    def summarize(
-        self,
-        question: str,
-        summary_type="executive",
-        top_k=10
-    ):
+    def summarize(self, question: str, summary_type="executive", top_k=10):
 
-        embedding = self.embedding_model.generate_embeddings(
-            [question]
-        )[0]
+        embedding = self.embedding_model.generate_embeddings([question])[0]
 
-        search_results = self.vector_store.search(
-            embedding,
-            top_k=top_k
-        )
+        search_results = self.vector_store.search(embedding, top_k=top_k)
 
         return self.summarizer.summarize(
-            search_results=search_results,
-            summary_type=summary_type
+            search_results=search_results, summary_type=summary_type
         )

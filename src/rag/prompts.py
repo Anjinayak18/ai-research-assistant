@@ -66,11 +66,7 @@ Explain the reason for the prediction briefly.
 """
 
 
-def build_rag_prompt(
-    context: str,
-    question: str,
-    history: str = ""
-) -> str:
+def build_rag_prompt(context: str, question: str, history: str = "") -> str:
     return f"""
 {RAG_SYSTEM_PROMPT}
 
